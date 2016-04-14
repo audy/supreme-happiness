@@ -13,7 +13,10 @@ cleanup
 
 ## Dependencies
 
-Nein.
+Cleanup invokes these external code formatters:
+
+- **Ruby** - [Rubocop](https://github.com/bbatsov/rubocop)
+- **JavaScript** - [js-beautify](https://github.com/beautify-web/js-beautify)
 
 ## Installation
 
