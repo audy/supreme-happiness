@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'bundler'
-Bundler.require
-
 class Detector
   def self.detect(path)
     case File.basename(path).split('.')[-1]
@@ -15,7 +12,13 @@ class Detector
 end
 
 class Formatter
-  def self.format(path, language)
+  def format(path, language)
+    case language
+    when :ruby
+      ruby path
+    when :javascript
+      javascript path
+    end
   end
 
   private
@@ -25,12 +28,12 @@ class Formatter
   end
 
   def javascript path
-    `js-beautify #{path}`
+    `js-beautify --replace #{path}`
   end
 end
 
 Dir['test/*'].each do |path|
   language = Detector.detect(path)
   puts "#{path} -> #{language}"
-  Formatter.format(path, language)
+  p Formatter.new.format(path, language)
 end
