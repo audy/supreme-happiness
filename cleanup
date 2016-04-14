@@ -24,7 +24,7 @@ class Formatter
   private
 
   def ruby path
-    `ruby-beautify #{path}`
+    `ruby-beautify --overwrite #{path}`
   end
 
   def javascript path
