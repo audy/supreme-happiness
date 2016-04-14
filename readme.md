@@ -11,6 +11,16 @@ In a directory full of someone else's ugly code, invoke thusly:
 cleanup
 ```
 
+## Dependencies
+
+Nein.
+
+## Installation
+
+```
+cp cleanup /usr/local/bin
+```
+
 # License
 
 The MIT License (MIT)
