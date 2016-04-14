@@ -24,7 +24,7 @@ class Formatter
   private
 
   def ruby path
-    `ruby-beautify --spaces --indent_count 2--overwrite #{path}`
+    `ruby-beautify --spaces --indent_count 2 --overwrite #{path}`
   end
 
   def javascript path
@@ -32,8 +32,12 @@ class Formatter
   end
 end
 
-Dir['test/*'].each do |path|
+dir = ARGV[0] || '*/**'
+
+Dir[dir].each do |path|
   language = Detector.detect(path)
-  puts "#{path} -> #{language}"
-  p Formatter.new.format(path, language)
+  unless language.nil?
+    Formatter.new.format(path, language)
+    puts "#{path} -> #{language}"
+  end
 end
