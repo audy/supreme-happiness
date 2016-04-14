@@ -24,7 +24,7 @@ class Formatter
   private
 
   def ruby path
-    `ruby-beautify --spaces --indent_count 2 --overwrite #{path}`
+    `rubocop --auto-correct --only Style spec/rails_helper.rb`
   end
 
   def javascript path
