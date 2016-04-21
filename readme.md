@@ -2,7 +2,6 @@
 
 Multi-language command-line code reformatter.
 
-
 ## Usage
 
 In a directory full of someone else's ugly code, invoke thusly:
